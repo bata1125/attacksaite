@@ -3,10 +3,15 @@
     <title>通常版</title>
 </head>
 <html>
+    <script type = "text/javascript">
+    function data_set(){
+            alert("受け付けました");
+    }
+    </script>
     <center>
-    
-    <form action="" method="post">
+    <form id = "xss" method="get">
         <h1>お問合せフォーム</h1>
+        <font size="5">お試しで、適当に入力してみてください。</font>
         <div>
             <label for = "name">名前：</label>
             <input type = "text" id = "name" name = "user_name" placeholder= "山田太郎" value="">
@@ -19,7 +24,11 @@
             <label for = "question">お問合せ内容:</label>
             <textarea id = "question" rows = "1" name = "question" placeholder="お問合せ内容を入力"></textarea>
         </div>
-        <button type = "submit">送信する</button>
+        <button type = "button" onclick="data_set()">送信する</button>
     </form>
+    </center>
+    <center>
+    一通り、今回体験するサイトをいじった所で、攻撃者側の視点でサイトを攻撃してみましょう。<br>
+    <font size = "7">攻撃者視点から</font>
     </center>
 </html>
