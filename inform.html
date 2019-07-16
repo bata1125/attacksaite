@@ -5,7 +5,7 @@
 <html>
     <script type = "text/javascript">
     function data_set(){
-            alert("受け付けました");
+        alert(document.forms.xss.name.value + "様、" + document.forms.xss.question.value + "という内容で受け付けました");
     }
     </script>
     <center>
@@ -29,6 +29,6 @@
     </center>
     <center>
     一通り、今回体験するサイトをいじった所で、攻撃者側の視点でサイトを攻撃してみましょう。<br>
-    <font size = "7">攻撃者視点から</font>
+    <font size = "7"><a href = "./attack.html">攻撃者視点から</a></font>
     </center>
 </html>
