@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <head>
-    <title>通常版</title>
+    <title>体験サイト</title>
+    <meta charset="utf-8">
 </head>
 <html>
+    <style>
+        body{
+            background: yellow;
+        }
+
+        textarea {
+            resize: none;
+            width:400px;
+            height:80px;
+        }
+    </style>
     <script type = "text/javascript">
     function data_set(){
         alert(document.forms.xss.name.value + "様、" + document.forms.xss.question.value + "という内容で受け付けました");
@@ -11,17 +23,20 @@
     <center>
     <form id = "xss" method="get">
         <h1>お問合せフォーム</h1>
-        <font size="5">お試しで、適当に入力してみてください。</font>
+        <font size="3">お試しで、適当に入力してみてください。</font><br>
+        <font size="3">何度か入力したら攻撃者の視点で攻撃スクリプトを挿入してみましょう。(笑)<br>とりあえず下記のコードをお問い合わせ内容にコピペしてみてください。</font><br>
+        <font size="4">攻撃コードのコピペは↓から</font><br>
+        <font size="6">&lt;script>windou.onload = fuction (){location.href= "http://xss.html";}&lt;/script></font>
         <div>
-            <label for = "name">名前：</label>
+            <label for = "name">名前</label><br>
             <input type = "text" id = "name" name = "user_name" placeholder= "山田太郎" value="">
         </div>
         <div>
-            <label for = "mail">E-Mail:</label>
+            <label for = "mail">E-Mail</label><br>
             <input type = "mail" id = "mail" name = "e_mail" placeholder="xxxxxxx@xxxxx.xx.xx" value="">
         </div>
         <div>
-            <label for = "question">お問合せ内容:</label>
+            <label for = "question">お問合せ内容</label><br>
             <textarea id = "question" rows = "1" name = "question" placeholder="お問合せ内容を入力"></textarea>
         </div>
         <button type = "button" onclick="data_set()">送信する</button>
@@ -29,6 +44,6 @@
     </center>
     <center>
     一通り、今回体験するサイトをいじった所で、攻撃者側の視点でサイトを攻撃してみましょう。<br>
-    <font size = "7"><a href = "./attack.html">攻撃者視点から</a></font>
+    <font size = "7"><a href = "./attack.html">被害者視点から</a></font>
     </center>
 </html>

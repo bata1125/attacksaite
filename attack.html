@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
 <head>
-    <title>攻撃者視点</title>
+    <title>被害者視点</title>
+    <meta charset="utf-8">
 </head>
 <html>
 <script type="text/javascript">
     function data_set() {
-        if (document.forms.question.indexOf('loction.href = "./xss.html"') != 1) {
-
-        } else {
-            alert(document.forms.xss.name.value + "様、" + document.forms.xss.question.value + "という内容で受け付けました");
-        }
+        //sleep(2000);
+        location.href = "attack_finish.html"
     }
 </script>
 <center>
     <form id="xss" method="get">
         <h1>お問合せフォーム</h1>
-        <font size="3">ここからは攻撃者の視点で攻撃してみましょう。(笑)<br>とりあえず下記のコードをお問い合わせ内容にコピペしてみてください。</font><br>
-        <font size = "4">攻撃コードのコピペは↓から</font><br>
-        <font size = "6">&lt;script>windou.onload = fuction (){location.href= "http://xss.html";}&lt;/script></font>
+        <font size="3">お試しで,適当に入力してみてください。</font><br>
         <div>
             <label for="name">名前：</label>
             <input type="text" id="name" name="user_name" placeholder="山田太郎" value="">
@@ -29,14 +25,9 @@
         </div>
         <div>
             <label for="question">お問合せ内容:</label>
-            <textarea id="question" rows="1" name="question" placeholder="お問合せ内容を入力"></textarea>
+            <textarea id="question" rows="1" name="question" placeholder = "<script>windou.onload = fuction (){location.href= "http://xss.html";}&lt;/script>"></textarea>
         </div>
         <button type="button" onclick="data_set()">送信する</button>
     </form>
 </center>
-<center>
-    送信ボタンを押したら、今度は被害者からの観点から眺めてみましょう。<br>
-    <font size="7"><a href="./attack.html">被害者視点から</a></font>
-</center>
-
 </html>
